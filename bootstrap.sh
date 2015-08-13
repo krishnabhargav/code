@@ -43,3 +43,8 @@ apt-get install -y openjdk-7-jdk
 # Install Leiningen
 wget https://raw.github.com/technomancy/leiningen/stable/bin/lein -O /usr/local/bin/lein
 chmod a+x /usr/local/bin/lein
+
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LANGUAGE=en_US.UTF-8
+
