@@ -30,6 +30,10 @@ check_and_install tmux
 check_and_install tree
 check_and_install vim
 check_and_install elixir
+check_and_install htop
+apt-get install sysstat
+apt-get install iptraf
+apt-get install linux-tools-common
 
 # Install the editor
 apt-get build-dep emacs24
