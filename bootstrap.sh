@@ -12,37 +12,22 @@ wget https://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb && sudo 
 # It's not ideal, but this just needs to happen first
 apt-get update
 
-## Idempotently check for presence of and install a package
-check_and_install () {
-    if [[ ! -x `which $1` ]] ; then
-        echo "Installing $1..."
-        apt-get install $1 -y
-    else
-        echo "$1 already installed, skipping."
-    fi
-}
+echo "#### INSTALLING Essentials ###"
+apt-get install -y build-essential
+apt-get install -y curl
+apt-get install -y git
+apt-get install -y unzip
+apt-get install -y linux-tools-common
+apt-get install -y emacs24-nox
 
-check_and_install build-essential
-check_and_install curl
-check_and_install git
-check_and_install unzip
-check_and_install tmux
-check_and_install tree
-check_and_install vim
-check_and_install elixir
-check_and_install htop
-apt-get install sysstat
-apt-get install iptraf
-apt-get install linux-tools-common
-
-# Install the editor
-apt-get build-dep emacs24
-wget http://ftp.gnu.org/gnu/emacs/emacs-24.5.tar.gz
-tar -xf emacs-24.5.tar.gz && cd emacs-24.5
-./configure && make && make install
-
-#install jdk 
+#install development tools 
+echo "#### INSTALLING Development tools ###"
 apt-get install -y openjdk-7-jdk
+apt-get install -y elixir
+
+#install servers
+echo "#### INSTALLING POSTGRESQL ###"
+apt-get install -y postgresql postgresql-contrib
 
 # Install Leiningen
 wget https://raw.github.com/technomancy/leiningen/stable/bin/lein -O /usr/local/bin/lein
@@ -50,3 +35,7 @@ chmod a+x /usr/local/bin/lein
 
 echo 'LC_ALL="en_US.UTF-8"'  >  /etc/default/locale
 
+echo "### Installing eventstore ####"
+curl https://apt-oss.geteventstore.com/eventstore.key | apt-key add -
+echo "deb [arch=amd64] https://apt-oss.geteventstore.com/ubuntu/ trusty main" | tee /etc/apt/sources.list.d/eventstore.list
+apt-get update && apt-get install eventstore-oss
