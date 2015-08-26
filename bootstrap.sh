@@ -34,8 +34,3 @@ wget https://raw.github.com/technomancy/leiningen/stable/bin/lein -O /usr/local/
 chmod a+x /usr/local/bin/lein
 
 echo 'LC_ALL="en_US.UTF-8"'  >  /etc/default/locale
-
-echo "### Installing eventstore ####"
-curl https://apt-oss.geteventstore.com/eventstore.key | apt-key add -
-echo "deb [arch=amd64] https://apt-oss.geteventstore.com/ubuntu/ trusty main" | tee /etc/apt/sources.list.d/eventstore.list
-apt-get update && apt-get install eventstore-oss
