@@ -20,7 +20,7 @@ apt-get install -y unzip
 apt-get install -y linux-tools-common
 apt-get install -y emacs24-nox
 
-#install development tools 
+#install development tools
 echo "#### INSTALLING Development tools ###"
 apt-get install -y openjdk-7-jdk
 apt-get install -y elixir
@@ -32,5 +32,11 @@ apt-get install -y postgresql postgresql-contrib
 # Install Leiningen
 wget https://raw.github.com/technomancy/leiningen/stable/bin/lein -O /usr/local/bin/lein
 chmod a+x /usr/local/bin/lein
+
+#Install Meteor
+apt-get install -y nodejs
+apt-get install -y npm
+npm install -g bower
+curl https://install.meteor.com/ | sh
 
 echo 'LC_ALL="en_US.UTF-8"'  >  /etc/default/locale

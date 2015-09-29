@@ -13,6 +13,7 @@ Vagrant.configure(2) do |config|
     v.memory = 1024
     v.cpus = 2
   end
-  config.vm.network "forwarded_port", host_ip:"127.0.0.1", guest:15432, host:15432
+  config.vm.network "forwarded_port", host_ip:"127.0.0.1", guest:5432, host:5432
+  config.vm.network "forwarded_port", host_ip:"127.0.0.1", guest:4000, host:4000
 end
 
