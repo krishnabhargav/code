@@ -24,6 +24,8 @@ apt-get install -y emacs24-nox
 echo "#### INSTALLING Development tools ###"
 apt-get install -y openjdk-7-jdk
 apt-get install -y elixir
+apt-get install -y nodejs-legacy
+apt-get install -y npm
 
 #install servers
 echo "#### INSTALLING POSTGRESQL ###"
@@ -34,3 +36,7 @@ wget https://raw.github.com/technomancy/leiningen/stable/bin/lein -O /usr/local/
 chmod a+x /usr/local/bin/lein
 
 echo 'LC_ALL="en_US.UTF-8"'  >  /etc/default/locale
+
+# Install ELM
+npm install --global elm
+
