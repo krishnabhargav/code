@@ -13,3 +13,6 @@ cd ~/.emacs.d && git pull -r && git submodule update && cd ~/
 
 echo "Copying the Spacemacs profile"
 cp /vagrant/.spacemacs ~/.spacemacs
+
+echo "export ELM_HOME=/usr/local/lib/node_modules/elm/share" > ~/.bashrc
+
