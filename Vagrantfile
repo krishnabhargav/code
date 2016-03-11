@@ -15,5 +15,7 @@ Vagrant.configure(2) do |config|
   end
   config.vm.network "forwarded_port", host_ip:"127.0.0.1", guest:5432, host:5432
   config.vm.network "forwarded_port", host_ip:"127.0.0.1", guest:4000, host:4000
+  config.vm.synced_folder "../", "/workspace"
 end
+
 

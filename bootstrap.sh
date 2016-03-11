@@ -22,10 +22,12 @@ apt-get install -y emacs24-nox
 
 #install development tools
 echo "#### INSTALLING Development tools ###"
-apt-get install -y openjdk-7-jdk
+apt-get install -y openjdk-8-jdk
 apt-get install -y elixir
 apt-get install -y nodejs-legacy
 apt-get install -y npm
+yes | mix local.hex
+yes | mix archive.install https://github.com/phoenixframework/archives/blob/master/phoenix_new.ez?raw=true
 
 #install servers
 echo "#### INSTALLING POSTGRESQL ###"
