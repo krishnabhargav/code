@@ -9,6 +9,10 @@ fi
 # add repos
 wget https://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb && sudo dpkg -i erlang-solutions_1.0_all.deb
 
+# setting up dotnet core
+echo "deb [arch=amd64] http://apt-mo.trafficmanager.net/repos/dotnet/ trusty main" > /etc/apt/sources.list.d/dotnetdev.list
+apt-key adv --keyserver apt-mo.trafficmanager.net --recv-keys 417A0893
+
 # It's not ideal, but this just needs to happen first
 apt-get update
 
@@ -28,6 +32,7 @@ apt-get install -y nodejs-legacy
 apt-get install -y npm
 yes | mix local.hex
 yes | mix archive.install https://github.com/phoenixframework/archives/blob/master/phoenix_new.ez?raw=true
+apt-get install -y dotnet=1.0.0.001598-1
 
 #install servers
 echo "#### INSTALLING POSTGRESQL ###"
